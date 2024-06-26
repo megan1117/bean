@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>選擇題問答系統</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .options {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            margin: 0 10px;
+        }
+
+        .option img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #feedback {
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>請問下列哪一張圖中人物最適合當選西定國小鮮肉代表？</h1>
+        <div class="options">
+            <div class="option">
+                <img src="https://drive.google.com/file/d/11LQlL3Wv19WnfWA7YKA2Gi7KVFYnixZr/view?usp=drive_link" alt="Mr. Bean" id="A">
+                <label for="A">A</label>
+            </div>
+            <div class="option">
+                <img src="https://drive.google.com/file/d/1x4s9VcMpS0UGOCE7j3FWea0eXl9iCCcz/view?usp=sharing" alt="Jerry Mouse" id="B">
+                <label for="B">B</label>
+            </div>
+            <div class="option">
+                <img src="https://drive.google.com/file/d/11WxLUi7_IP2Hgnc_brpCKZFC7Clye7Kp/view?usp=sharing" alt="Taiwan Blue Magpie" id="C">
+                <label for="C">C</label>
+            </div>
+        </div>
+        <div class="input-group">
+            <input type="text" id="answer" placeholder="輸入答案 (A, B 或 C)">
+            <button onclick="checkAnswer()">提交</button>
+        </div>
+        <p id="feedback"></p>
+    </div>
+    <script>
+        function checkAnswer() {
+            const answer = document.getElementById('answer').value.toUpperCase();
+            const feedback = document.getElementById('feedback');
+
+            switch (answer) {
+                case 'A':
+                    feedback.textContent = '頭腦發燒不清楚';
+                    break;
+                case 'B':
+                    feedback.textContent = '視力需檢查不準確';
+                    break;
+                case 'C':
+                    feedback.textContent = '可以納入考慮選擇';
+                    break;
+                default:
+                    feedback.textContent = '請輸入有效的答案 (A, B 或 C)';
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
